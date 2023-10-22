@@ -10,14 +10,15 @@ public class TestMain {
         Formula f2 = new Formula() {
             @Override
             public double calculate(int a) {
-                return 2*a;
+                return 2 * a;
             }
         };
 
         double f2sqrt = f2.sqrt(16);
         System.out.println("f2sqrt = " + f2sqrt);
 
-
+        //usage of static method of Interface
+        double aCube = Formula.cube(4);
+        System.out.println("aCube = " + aCube);
     }
-
 }

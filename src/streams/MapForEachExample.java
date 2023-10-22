@@ -36,8 +36,13 @@ public class MapForEachExample {
                 .map(s -> new MyClass(s))
                 .forEach(System.out::println);
 
-        //or
+        //to get collection of objects - use stream#collect method
+        //todo: разобраться в передаваемых функциях. например, почему addAll, а не add?
         List<String> newColl = stringCollection.stream()
-                .map(String::toUpperCase).toList();
+                .map(String::toUpperCase)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+
+        //print
+        newColl.stream().forEach(s -> System.out.print(" " + s + " "));
     }
 }

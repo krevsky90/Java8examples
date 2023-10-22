@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class ReduceExample {
     public static void main(String[] args) {
+        //example 1:
         List<String> stringCollection = new ArrayList<>();
         stringCollection.add("ddd2");
         stringCollection.add("aaa2");
@@ -16,16 +17,15 @@ public class ReduceExample {
         stringCollection.add("ccc");
         stringCollection.add("bbb2");
         stringCollection.add("ddd1");
-
-        Collection emptyCollection = Collections.emptyList();
-        //or you can write Optional<String>
         Optional o = stringCollection.stream().reduce((s1, s2) -> s1 + "#" + s2);
         System.out.println(o);  //returns Optional[ddd2#aaa2#bbb1#aaa1#bbb3#ccc#bbb2#ddd1]
 
+        //example 2:
+        Collection emptyCollection = Collections.emptyList();
         Optional oEmpty = emptyCollection.stream().reduce((s1, s2) -> s1 + "#" + s2);
         System.out.println(oEmpty); //returns Optional.empty
 
-        //math experiment
+        //example 3: math experiment
         List<Integer> digitList = Arrays.asList(3, 2, 1);
         Optional<Integer> oDigit = digitList.stream().reduce((d1, d2) -> d1*d1 + d2*d2);
         //it works by the following:
